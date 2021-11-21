@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 2021_11_19_032315) do
     t.decimal "reviews"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "colors", default: [], array: true
-    t.text "sizes", default: [], array: true
+    t.text "colors"
+    t.text "sizes"
   end
 
   create_table "users", force: :cascade do |t|
