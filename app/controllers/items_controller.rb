@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: %i[ show edit update destroy ]
 
+  before_action :authenticate_admin!, only: [:new, :create, :edit, :update, :destroy]
+
   # GET /items or /items.json
   def index
     @items = Item.all
