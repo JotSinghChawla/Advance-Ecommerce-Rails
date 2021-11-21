@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
 
+    include ApplicationHelper
+
     protected
 
     def authenticate_admin!
