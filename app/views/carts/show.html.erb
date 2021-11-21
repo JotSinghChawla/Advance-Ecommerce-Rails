@@ -34,6 +34,10 @@
           <% end %> 
         </td>
         <td> Subtotal: <%= oi.total %> </td>
+        
+        <td>
+        <%= link_to 'Remove', order_item_path(oi), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
 
       </tr>
     <% end %>
