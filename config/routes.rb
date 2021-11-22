@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'products' => 'products#index'
+  # get 'products', to: 'products#index'
+  get 'products/show'
+
   get 'carts/show'
   resources :items
   
