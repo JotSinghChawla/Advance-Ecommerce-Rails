@@ -42,7 +42,9 @@
 
 <br>
 
-<%= link_to 'Check Out', '/' %>
+<form action="/create-checkout-session" method="POST">
+  <button type="submit" class="btn btn-success">Checkout</button>
+</form>
 
 
 <h2> Total price: <%= current_order.subtotal %> </h2>
