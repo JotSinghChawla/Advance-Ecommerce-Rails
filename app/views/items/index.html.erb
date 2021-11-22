@@ -29,7 +29,7 @@
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 
         <td>
-          <%= form_for @order_item do |f| %>
+          <%= form_for @order_item, remote: true do |f| %>
             <%= f.hidden_field :item_id, value: item.id %>
             <%= f.number_field :quantity, min: 1, max: 10, value: 1 %>
             <%= f.submit 'Add to Cart' %>
@@ -45,6 +45,8 @@
 
 <%= link_to 'New Item', new_item_path %> <br>
 
-<%= link_to "#{current_order.order_items.size} items with value: #{current_order.subtotal}$ ", carts_path %>
+<div id="cart">
+    <%= render 'carts/cart' %>
+</div>
 
 

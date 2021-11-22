@@ -1,0 +1,48 @@
+ 
+<table>
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Price</th>
+    <th>Reviews</th>
+    <th>Sizes</th>
+    <th>Colors</th>
+    <th colspan="3"></th>
+  </tr>
+</thead>
+
+<tbody>
+  <% @order_items.each do |oi| %>
+    <tr>
+      <td><%= oi.item.name %></td>
+      <td><%= oi.item.category %></td>
+      <td><%= oi.item.price %></td>
+      <td><%= oi.item.reviews %></td>
+      <td><%= oi.item.sizes %></td>
+      <td><%= oi.item.colors %></td>
+
+      <td>
+        <%= form_for oi, remote: true do |f| %>
+          <%= f.hidden_field :item_id, value: oi.item.id %>
+          <%= f.number_field :quantity, min: 1, max: 10, value: oi.quantity %>
+          <%= f.submit 'Update Cart' %>
+        <% end %> 
+      </td>
+      <td> Subtotal: <%= oi.total %> </td>
+      
+      <td>
+      <%= link_to 'Remove', order_item_path(oi), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+      </td>
+
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<br>
+
+<%= link_to 'Check Out', '/' %>
+
+
+<h2> Total price: <%= current_order.subtotal %> </h2>
