@@ -6,6 +6,7 @@ class OrderItem < ApplicationRecord
     before_save :set_total
 
     def unit_price
+        # if Record exists
         if persisted?
             self[:unit_price]
         else

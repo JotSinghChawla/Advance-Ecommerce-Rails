@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+.text-on-image {
+  position: absolute;
+  top: 8%;
+  left: 5%;
+}
+
+.text1 {
+  padding-top: 10px;
+  font-size: 4.5rem;
+  font-weight: 700;
+  line-height: 1.1;
+  width: 650px;
+}
+
+.text2 {
+  font-size: 20px;
+  background: black;
+  opacity: 0.5;
+  padding: 5px;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.opacity-image {
+  opacity: 1;
+}
