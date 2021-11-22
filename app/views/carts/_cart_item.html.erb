@@ -42,9 +42,9 @@
 
 <br>
 
-<form action="/create-checkout-session" method="POST">
-  <button type="submit" class="btn btn-success">Checkout</button>
-</form>
+<%= button_to "Checkout", carts_path, method: :post, params: {id: @order_items.first.item.id}, remote: true, class: 'btn btn-success' %>
+
+
 
 
 <h2> Total price: <%= current_order.subtotal %> </h2>
