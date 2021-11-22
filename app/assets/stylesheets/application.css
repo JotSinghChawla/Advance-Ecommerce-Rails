@@ -17,15 +17,15 @@
 .text-on-image {
   position: absolute;
   top: 8%;
-  left: 5%;
+  left: 4%;
 }
 
 .text1 {
   padding-top: 10px;
-  font-size: 4.5rem;
+  font-size: 4.1rem;
   font-weight: 700;
   line-height: 1.1;
-  width: 650px;
+  width: 620px;
 }
 
 .text2 {
