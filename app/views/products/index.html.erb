@@ -37,7 +37,13 @@
             <td><%= item.colors %></td>
             <td><%= link_to 'Show', item %></td>
 
-          
+            <td>
+              <%= form_for @order_item, remote: true do |f| %>
+                <%= f.hidden_field :item_id, value: item.id %>
+                <%= f.number_field :quantity, min: 1, max: 10, value: 1 %>
+                <%= f.submit 'Add to Cart' %>
+              <% end %> 
+            </td>
 
           </tr>
       <% end %>

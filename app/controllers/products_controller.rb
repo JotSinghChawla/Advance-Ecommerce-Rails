@@ -2,10 +2,10 @@ class ProductsController < ApplicationController
 
   def index
     @items = Item.all
-    
+    @order_item = current_order.order_items.new
     
     if request.post?
-
+      
       # render 'hello'
       # redirect_to '/products/hello'
 
@@ -18,12 +18,10 @@ class ProductsController < ApplicationController
         # @items = Item.find_by_sql ["Select * from items WHERE name like ?",keyword]
 
         puts "Item Value ======================= #{@items.inspect}"
-
-        @order_item = current_order.order_items.new
         render 'index'
+
       else
         @items = Item.all
-        @order_item = current_order.order_items.new
       end
 
     end

@@ -42,8 +42,9 @@
 
 <br>
 
-<%= button_to "Checkout", carts_path, method: :post, params: {id: @order_items.first.item.id}, remote: true, class: 'btn btn-success' %>
-
+<% if @order_items.present? %>
+   <%= button_to "Checkout", carts_path, method: :post, params: {id: @order_items.first.item.id}, remote: true, class: 'btn btn-success' %>
+<% end %>
 
 
 
