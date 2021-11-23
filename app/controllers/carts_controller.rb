@@ -1,5 +1,8 @@
 class CartsController < ApplicationController
 
+  def success
+  end
+
   def create
 
     @session = Stripe::Checkout::Session.create({
@@ -16,7 +19,7 @@ class CartsController < ApplicationController
       }],
       mode: 'payment',
       # These placeholder URLs will be replaced in a following step.
-      success_url: 'http://localhost:3000/success',
+      success_url: 'http://localhost:3000/carts/success',
       cancel_url: 'http://localhost:3000/carts',
     })
     respond_to do |format|
