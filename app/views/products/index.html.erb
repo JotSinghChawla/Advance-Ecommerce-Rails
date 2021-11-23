@@ -4,43 +4,48 @@
 <h1 class="display-4"> <b> Our range of Products </b> </h1>
 </div>
 
+<div>
+  <%= form_with url: "/products", local: true, method: :post do |form| %>  
+    <%= form.text_field :search %>
+    <%= form.submit "Search" %>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Price</th>
-      <th>Reviews</th>
-      <th>Sizes</th>
-      <th>Colors</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @items.each do |item| %>
+<% if !@items.empty? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= item.name %></td>
-        <td><%= item.category %></td>
-        <td><%= item.price %></td>
-        <td><%= item.reviews %></td>
-        <td><%= item.sizes %></td>
-        <td><%= item.colors %></td>
-        <td><%= link_to 'Show', item %></td>
-
-        <td>
-          <%= form_for @order_item, remote: true do |f| %>
-            <%= f.hidden_field :item_id, value: item.id %>
-            <%= f.number_field :quantity, min: 1, max: 10, value: 1 %>
-            <%= f.submit 'Add to Cart' %>
-          <% end %> 
-        </td>
-
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Reviews</th>
+        <th>Sizes</th>
+        <th>Colors</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= item.name %></td>
+            <td><%= item.category %></td>
+            <td><%= item.price %></td>
+            <td><%= item.reviews %></td>
+            <td><%= item.sizes %></td>
+            <td><%= item.colors %></td>
+            <td><%= link_to 'Show', item %></td>
+
+          
+
+          </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+    <h1> No items found </h1>
+<% end %>
 
 <br>
 

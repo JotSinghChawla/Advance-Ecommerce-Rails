@@ -13,7 +13,7 @@ class CartsController < ApplicationController
           product_data: {
             name: 'T-shirt',
           },
-          unit_amount: 500,
+          unit_amount: 50000,
         },
         quantity: 1,
       }],

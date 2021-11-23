@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'products' => 'products#index'
   # get 'products', to: 'products#index'
-  get 'products/show'
+  
+  post 'products', to: 'products#index'
 
   # get 'carts/show'
 
