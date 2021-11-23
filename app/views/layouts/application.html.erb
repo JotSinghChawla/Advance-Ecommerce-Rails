@@ -19,7 +19,7 @@
   <body>
 
   
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #eee;">
   <a class="navbar-brand" href="/">
     <%= image_tag 'logo.png', alt: 'Shoelush', width: 60, height: 30, class: "d-inline-block align-top"  %>
     Shoelush
@@ -65,6 +65,8 @@
         </ul>
     </div>
   </nav>
+  
+  <div class="mt-5 pt-3"></div>
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
