@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,6 +16,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script src="https://js.stripe.com/v3/"></script>
+
+
   </head>
 
   <body>
@@ -37,9 +41,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/products">Products</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/items">Items</a>
-        </li>
+        <% if user_signed_in? && current_user.admin? %>
+          <li class="nav-item">
+            <a class="nav-link" href="/items">Change Items</a>
+          </li>
+        <% end %>
         <li class="nav-item">
           <a class="nav-link" href="/carts">Cart</a>
         </li>
@@ -48,7 +54,8 @@
           <li class="nav-item">
           <p class="navbar-text m-auto d-flex align-items-center">
           <% if user_signed_in? %>
-            <%#= image_tag current_user.image_link, class: 'img-fluid rounded-circle mr-1', style: "height: 40px; width: 40px" %>
+            <%= image_tag "https://lh3.googleusercontent.com/-7NfTuMgr-UQ/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucknKfQpbLxUPbKotnYffSyZ6_jCbA/photo.jpg?sz=46", class: 'img-fluid rounded-circle mr-1', style: "height: 40px; width: 40px" %>
+            
             <span class="mr-2" data-toggle="tooltip" data-placement="bottom" title="<%= current_user.email %>">
               <strong class="pr-2 h4"><%= current_user.email.capitalize %></strong>
             </span>
